@@ -1,23 +1,34 @@
 import React from 'react';
-
 import './top-nav.css';
+import {InfoConsumer} from './game'
 
 export default function TopNav(props) {
+
     return (
-        <nav>
-            <ul className="clearfix">
-                <li>
-                    <a className="what" href="#">
-                        What?
-                    </a>
-                </li>
-                <li>
-                    <a className="new" href="#">
-                        + New Game
-                    </a>
-                </li>
-            </ul>
-        </nav>
+
+        <InfoConsumer>
+            {({infoChange})=>
+                <nav>
+                    <ul className="clearfix">
+                        <li>
+                            <a className="what" href="#" onClick={()=>infoChange(true)}>
+                                What?
+                            </a>
+                        </li>
+                        <li>
+                            <a className="new" href="#" onClick={props.newGame}>
+                                + New Game
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            
+            }
+
+
+        </InfoConsumer>
+
+        
     );
 }
 
